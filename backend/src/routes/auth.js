@@ -3,7 +3,7 @@ const router = require('express').Router()
 const passport = require('passport')
 const Validator = require('async-validator').default
 
-//! Register
+
 router.post('/register', async (req, res, next) => {
   const descriptor = {
     name: [{ required: true, message: 'Your name is required.\n' }],
@@ -61,11 +61,10 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
-//! Login
 router.post(
   '/session',
   (req, res, next) => {
-    next(req.user && new Error('User is already logged in '))
+    next(req.user && new Error('Sorry! User is already logged in '))
   },
   passport.authenticate('local', {
     failWithError: true
@@ -78,18 +77,16 @@ router.post(
 
     next(
       new Error(
-        'The username and password you provided did not match out records. Please double-check and try again.'
+        'Sorry, the username and password you provided did not match out records. Please try again.'
       )
     )
   }
 )
 
-//! checkLoggedIn
 router.get('/session', (req, res) => {
   res.send(req.user)
 })
 
-//! logout
 router.delete('/session', async (req, res, next) => {
   req.logout()
 
