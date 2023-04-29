@@ -1,3 +1,6 @@
+<template>
+  <Tweet :tweetData="tweet" />
+</template>
 <script>
 import { mapActions, mapState } from 'vuex'
 import Tweet from '../components/Tweet'
@@ -8,7 +11,6 @@ export default {
   },
   data() {
     return {
-      // tweet: '',
       loading: false,
       backendErrors: null
     }
@@ -24,9 +26,5 @@ export default {
   }
 }
 </script>
-
-<template>
-  <Tweet :tweetData="tweet" />
-</template>
 
 <style lang="scss" scoped></style>

@@ -2,17 +2,17 @@ const Tweet = require('../models/tweet')
 const { tweetService } = require('../services')
 const Validator = require('async-validator').default
 
-exports.createTweet = async (req, res, next) => {
+exports.CT = async (req, res, next) => {
   const descriptor = {
     content: [
       { requied: true, message: 'Blog message is required' },
       {
         min: 1,
-        message: 'Blog message should be between 1 and 140 characters'
+        message: 'Sorry, blog message should be between 1 and 150 characters'
       },
       {
-        max: 140,
-        message: 'Blog message should be between 1 and 140 characters'
+        max: 150,
+        message: 'Sorry, blog message should be between 1 and 150 characters'
       }
     ],
     author: [{ required: true, message: 'Author is required' }]
@@ -50,11 +50,11 @@ exports.editTweet = async (req, res, next) => {
       { requied: true, message: 'Blog message is required' },
       {
         min: 1,
-        message: 'Blog message should be between 1 and 140 characters'
+        message: 'Blog message should be between 1 and 150 characters'
       },
       {
-        max: 140,
-        message: 'Blog message should be between 1 and 140 characters'
+        max: 150,
+        message: 'Blog message should be between 1 and 150 characters'
       }
     ],
     author: [{ required: true, message: 'Author is required' }]

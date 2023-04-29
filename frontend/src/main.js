@@ -21,9 +21,7 @@ Vue.component('auth-layout', AuthLayout)
 Vue.component('default-layout', DefaultLayout)
 Vue.use(Toasted)
 Vue.component(VueSkeletonLoader)
-
 Vue.prototype.moment = moment
-
 Vue.config.productionTip = false
 
 

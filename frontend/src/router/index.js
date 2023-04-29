@@ -11,7 +11,6 @@ Vue.use(VueRouter)
 export default function init(store) {
   return new VueRouter({
     mode: 'history',
-    // base: process.env.BASE_URL,
     routes: [
       {
         path: '/register',
@@ -38,11 +37,6 @@ export default function init(store) {
         name: 'Home',
         meta: { layout: 'default' },
         component: Home,
-        // beforeEnter(to, from, next) {
-        //   console.log('%c index~51 %c store：', 'color: #999', 'color: #ff6700;', store);
-        //   if (!store.state.account.user) return next('/login')
-        //   return next()
-        // }
       },
       {
         path: '/home',
@@ -59,10 +53,6 @@ export default function init(store) {
         name: 'TweetDetail',
         meta: { layout: 'default' },
         component: TweetDetail,
-        // beforeEnter(to, from, next) {
-        //   if (!store.state.account.user) return next('/login')
-        //   return next()
-        // }
       },
       {
         path: '/users/:userId',
@@ -72,10 +62,6 @@ export default function init(store) {
           showUser: true
         },
         component: User,
-        // beforeEnter(to, from, next) {
-        //   if (!store.state.account.user) return next('/login')
-        //   return next()
-        // }
       },
     ]
   })

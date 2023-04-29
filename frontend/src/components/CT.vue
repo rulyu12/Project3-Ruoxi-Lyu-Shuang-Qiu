@@ -1,5 +1,5 @@
 <template>
-  <form id="zone-blog" @submit="submitCreateTweet">
+  <form id="zone-blog" @submit="submitCT">
     <div class="input-context">
       <el-input
         type="textarea"
@@ -23,7 +23,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: 'CreateTweet',
+  name: 'CT',
   components: {
   },
   props: {
@@ -45,16 +45,12 @@ export default {
   methods: {
     ...mapActions('tweet', ['create_tweet']),
     ...mapActions('tweet', ['fetch_tweets']),
-    async submitCreateTweet(e) {
+    async submitCT(e) {
       e.preventDefault()
       this.loading = false
-
       if (!this.tweet.trim()) {
         return this.$message.error('blog cannot be empty!');
       }
-
-
-
       try {
         if (this.isEdit) {
           this.$emit('edit', {

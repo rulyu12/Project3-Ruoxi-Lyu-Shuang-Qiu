@@ -1,4 +1,3 @@
-
 <template>
   <div class="user-page">
     <el-card class="user-card" shadow="hover">
@@ -6,13 +5,14 @@
         <h5 class="user-name">{{ currentUser.username }}</h5>
       </div>
       <p class="join-time">
-        <i class="el-icon-date"></i>&#x3000;join in {{ moment(currentUser.createdAt).format('YYYY-MM-DD HH:mm:ss') }}
+        <i class="el-icon-date"></i>&#x3000;join in
+        {{ moment(currentUser.createdAt).format('YYYY-MM-DD HH:mm:ss') }}
       </p>
       <p class="desc">{{ currentUser.description || '-' }}</p>
     </el-card>
     <div class="blog-content">
-      <div v-for="(item, index) in userBlogList">
-        <Twetter :key="index" :tweetData="item" />
+      <div v-for="(item, index) in userBlogList" :key="index">
+        <Twetter :tweetData="item" />
       </div>
     </div>
   </div>
@@ -43,15 +43,15 @@ export default {
         url: '/api/blog/getUserTweet',
         params: {
           id: this.$route.params.userId
-        },
+        }
       })
-      const { data } = res;
-      this.userBlogList = data;
+      const { data } = res
+      this.userBlogList = data
     }
   },
   mounted() {
     this.handleGetUserBlogList()
-  },
+  }
 }
 </script>
 
@@ -80,6 +80,4 @@ export default {
     }
   }
 }
-
 </style>
-

@@ -10,7 +10,6 @@ $colors: (
   'lambda': #111,
   'sigma': #111,
   'error': #111,
-  /////
   'primary': #111,
   'text': #111,
   'orange': #111,
@@ -20,13 +19,8 @@ $colors: (
   'banner': #111,
 );
 
-// Padding and margin space value for each 1 to 12 values
 $space: 5px !default;
-
-//Base unit used for spacing gutters
 $base-unit: 15px;
-
-//Screen Sizes
 $screen-xs: 576px;
 $screen-sm: 768px;
 $screen-md: 1024px;

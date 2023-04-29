@@ -46,7 +46,7 @@
 
     <el-dialog class="dialog-class" title="Update" visible v-if="dialogVisible" @close="dialogVisible = false">
       <div class="content">
-        <CreateTweet isEdit :content="tweetData.content" @edit="handleEdit" />
+        <CT isEdit :content="tweetData.content" @edit="handleEdit" />
       </div>
     </el-dialog>
 
@@ -55,7 +55,7 @@
 
 <script>
 import axios from 'axios'
-import CreateTweet from './CreateTweet'
+import CT from './CT'
 import { mapActions, mapState, mapGetters } from 'vuex';
 import moment from 'moment'
 
@@ -73,7 +73,7 @@ export default {
     }
   },
   components: {
-    CreateTweet
+    CT
   },
   computed: {
     ...mapState('tweet', ['tweet']),
@@ -88,11 +88,9 @@ export default {
       'delete',
       'edit_tweet'
     ]),
-
     async handleDelete() {
       await this.delete(this.tweetData._id);
     },
-
     async handleEdit(data) {
       console.log(data, 'data')
       const rest = await this.edit_tweet({tweetId: this.tweetData._id, data});
@@ -207,8 +205,28 @@ export default {
           background-color: transparent;
         }
       }
-      
-    
+      #like:hover {
+        svg {
+          fill: rgba(red, 0.8);
+          background-color: rgba(red, 0.08);
+          border-radius: 100px;
+        }
+
+        span {
+          color: rgba(red, 0.8);
+        }
+      }
+      #share:hover {
+        svg {
+          fill: rgba(#1da1f2, 0.8);
+          background-color: rgba(#1da1f2, 0.08);
+          border-radius: 50%;
+        }
+
+        span {
+          color: rgba(green, 0.8);
+        }
+      }
       ::v-deep .el-button {
         display: flex;
         justify-content: center;

@@ -3,7 +3,6 @@ const indexRouter = require('./routes/index')
 const tweetRouter = require('./routes/tweet')
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
-
 const { mongoose } = require('./mongo-connection')
 const logger = require('morgan')
 const session = require('express-session')

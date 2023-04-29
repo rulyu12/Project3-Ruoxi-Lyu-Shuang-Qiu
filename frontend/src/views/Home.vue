@@ -1,5 +1,18 @@
+<template>
+  <div id="home-page" class="home">
+    <CT />
+    <p v-if="errMessage">{{ errMessage }}</p>
+    <p v-else-if="!tweets && tweets.length < 0">Please wait..⌛️.</p>
+    <div v-else>
+      <ul v-for="tweet in tweets" :key="tweet.id">
+        <Tweet :tweetData="tweet" />
+      </ul>
+    </div>
+  </div>
+</template>
+
 <script>
-import CreateTweet from '@/components/CreateTweet'
+import CT from '@/components/CT'
 import Tweet from '@/components/Tweet'
 import { mapState, mapGetters } from 'vuex'
 
@@ -12,7 +25,7 @@ export default {
     }
   },
   components: {
-    CreateTweet,
+    CT,
     Tweet
   },
   computed: {
@@ -21,24 +34,11 @@ export default {
   },
   watch: {
     user(val) {
-      console.log('Home~24 val：', val);
+      console.log('Home~24 val：', val)
     }
   }
 }
 </script>
-
-<template>
-  <div id="home-page" class="home">
-    <CreateTweet />
-    <p v-if="errMessage">{{ errMessage }}</p>
-    <p v-else-if="!tweets && tweets.length < 0">Please wait..⌛️.</p>
-    <div v-else>
-      <ul v-for="tweet in tweets" :key="tweet.id">
-        <Tweet :tweetData="tweet" />
-      </ul>
-    </div>
-  </div>
-</template>
 
 <style scoped lang="scss">
 .home {
